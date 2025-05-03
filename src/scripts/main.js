@@ -11,7 +11,7 @@ const sortDirections = {
 headerTitles.addEventListener('click', (e) => {
   const param = e.target;
 
-  if (param.tagName !== 'TH') {
+  if (!param.closest('th')) {
     return;
   }
 
@@ -38,7 +38,7 @@ headerTitles.addEventListener('click', (e) => {
         const age1 = +r1.children[2].textContent;
         const age2 = +r2.children[2].textContent;
 
-        if (sortDirections[0] === 'asc') {
+        if (sortDirections[2] === 'asc') {
           return age1 - age2;
         }
         break;
@@ -51,7 +51,7 @@ headerTitles.addEventListener('click', (e) => {
           .replace('$', '')
           .replace(',', '');
 
-        if (sortDirections[0] === 'asc') {
+        if (sortDirections[3] === 'asc') {
           return sal1 - sal2;
         }
         break;
